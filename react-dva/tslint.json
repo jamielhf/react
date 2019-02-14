@@ -16,6 +16,7 @@
         "single",
         "avoid-escape"
     ],
+    "jsx-no-lambda": false,
     "prefer-conditional-expression": false,
     "max-line-length": false,
     "member-ordering": false,

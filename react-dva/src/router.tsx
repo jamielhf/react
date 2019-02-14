@@ -14,7 +14,6 @@ function RouterConfig({ history, app }: any) {
     {
       path: '/',
       name: 'Index',
-      models: () => [import('./models/global')],
       component: () => import('./pages/Index/index'),
     },
     {

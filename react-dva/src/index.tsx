@@ -2,7 +2,7 @@ import dva from 'dva';
 import { createHashHistory as createHistory } from 'history'
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-// import global from './models/global';
+import global from './models/global';
 import router from './router';
 // 1. Initialize
 const app = dva({
@@ -19,7 +19,7 @@ const app = dva({
 
 // tslint:disable-next-line:no-var-requires
 
-// app.model({});
+app.model(global);
 
 // 4. Router
 // tslint:disable-next-line:no-var-requires
