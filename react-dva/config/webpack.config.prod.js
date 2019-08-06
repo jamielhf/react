@@ -182,7 +182,7 @@ module.exports = {
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
           {
-            test: /\.css$/,
+            test: /\.s?css$/,
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
@@ -198,8 +198,13 @@ module.exports = {
                       options: {
                         importLoaders: 1,
                         minimize: true,
-                        sourceMap: shouldUseSourceMap,
+                        modules: true,
+                        sourceMap: false,
+                        localIdentName: '[name]_[local]_[hash:base64:8]'
                       },
+                    },
+                    {
+                      loader: require.resolve('sass-loader'), // 将 Sass 编译成 CSS
                     },
                     {
                       loader: require.resolve('postcss-loader'),

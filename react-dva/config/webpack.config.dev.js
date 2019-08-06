@@ -170,14 +170,24 @@ module.exports = {
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
           {
-            test: /\.css$/,
+            test: /\.scss$/,
             use: [
-              require.resolve('style-loader'),
+              {
+                loader: require.resolve('style-loader'),
+                options: {
+                  hmr : true,
+                },
+              },
               {
                 loader: require.resolve('css-loader'),
                 options: {
                   importLoaders: 1,
+                  modules: true,
+                  localIdentName: '[name]_[local]_[hash:base64:8]'
                 },
+              },
+              {
+                loader: "sass-loader" // 将 Sass 编译成 CSS
               },
               {
                 loader: require.resolve('postcss-loader'),
@@ -199,6 +209,9 @@ module.exports = {
                   ],
                 },
               },
+            ],
+            include:[
+              path.resolve(__dirname,'../src')
             ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
