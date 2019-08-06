@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './index.css';
+import './index.scss';
 import { Link } from 'dva/router';
 
 class Index extends React.Component {

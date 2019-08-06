@@ -1,6 +1,6 @@
 import dva from 'dva';
 import { createHashHistory as createHistory } from 'history'
-import './index.css';
+import './index.scss';
 import registerServiceWorker from './registerServiceWorker';
 import global from './models/global';
 import router from './router';
